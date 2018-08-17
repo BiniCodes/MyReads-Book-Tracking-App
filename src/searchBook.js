@@ -8,7 +8,7 @@ class SearchBook extends Component{
 
 	state = {
 		searchBook: [],
-		query: ' ' 
+		query: '' 
 	}
 
 	updateQuery = (query) => {
