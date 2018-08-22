@@ -47,13 +47,14 @@ and the variable chooseshelf representing the default value for the selection of
 			})
 		} else {
 		//If there is no query in the input field leave the searchBook array of the state empty
-		 this.setState({ searchBook: [] });}
+		 this.setState({ searchBook: null });}
 	}
 
 
 
 
 	render(){
+
 		return(
 			<div className="search-books">
 	            <div className="search-books-bar">
@@ -73,11 +74,12 @@ and the variable chooseshelf representing the default value for the selection of
 	              <ol className="books-grid">
 	              	{ 
 	              		//Map through the existing searchBook array and return a Book component for each book inside of searchBook
+						(this.state.searchBook != null) ?
 						this.state.searchBook.map( searchedBook =>  
 			              	<li key={searchedBook.id} >
 								<Book  book={ searchedBook } chooseShelf= { searchedBook.shelf } updateShelf={this.props.updateShelf}/>
 							</li>
-						)
+						) : ''
 					}
 	              </ol>
 	            </div>
